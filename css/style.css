@@ -1,0 +1,1810 @@
+/* =========================================================
+   SOMEONE NEEDS DEBUGGING... 👀
+   MAIN STYLE SHEET
+   ---------------------------------------------------------
+   File: css/style.css
+
+   This file contains:
+   - Global styles
+   - Background
+   - Terminal
+   - Cards
+   - Buttons
+   - Inputs
+   - Progress bars
+   - Questions
+   - Modals
+   - Footer
+
+   Animations are kept separately in animations.css.
+========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(80, 90, 190, 0.14),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(0, 160, 255, 0.08),
+            transparent 32%
+        ),
+
+        #07080d;
+
+    color: #e9ecf5;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+button,
+input {
+    font: inherit;
+}
+
+
+button {
+    border: 0;
+    outline: none;
+}
+
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid rgba(105, 165, 255, 0.7);
+    outline-offset: 3px;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   2. MAIN APPLICATION
+========================================================= */
+
+.app {
+    position: relative;
+
+    width: 100%;
+    max-width: 720px;
+
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    padding:
+        18px
+        14px
+        50px;
+
+    z-index: 2;
+}
+
+
+.screen {
+    width: 100%;
+
+    min-height:
+        calc(100vh - 70px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        20px
+        0;
+}
+
+
+/* =========================================================
+   3. FUTURISTIC BACKGROUND
+========================================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    opacity: 0.13;
+
+    background-image:
+
+        linear-gradient(
+            rgba(110, 130, 255, 0.08) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(110, 130, 255, 0.08) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        36px 36px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+}
+
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 45%,
+            rgba(0, 0, 0, 0.35)
+        );
+}
+
+
+/* =========================================================
+   4. PARTICLE LAYER
+========================================================= */
+
+.particles {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+.binary-background {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    opacity: 0.035;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    color: #6c8cff;
+}
+
+
+/* =========================================================
+   5. TERMINAL WINDOW
+========================================================= */
+
+.terminal {
+    width: 100%;
+
+    overflow: hidden;
+
+    background:
+        rgba(9, 11, 17, 0.88);
+
+    border:
+        1px solid
+        rgba(125, 145, 195, 0.18);
+
+    border-radius: 18px;
+
+    box-shadow:
+
+        0 25px 80px
+        rgba(0, 0, 0, 0.5),
+
+        0 0 45px
+        rgba(75, 95, 255, 0.06);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+}
+
+
+/* =========================================================
+   6. TERMINAL HEADER
+========================================================= */
+
+.terminal-header {
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding:
+        0 14px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+}
+
+
+.terminal-controls {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+
+.terminal-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #555b68;
+}
+
+
+.terminal-window-title {
+    margin-left: 9px;
+
+    color: #737b8e;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   7. TERMINAL BODY
+========================================================= */
+
+.terminal-body {
+    padding:
+        22px
+        17px
+        26px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+.terminal-output {
+    color: #a8afc0;
+}
+
+
+.terminal-line {
+    min-height: 24px;
+
+    color: #a8afc0;
+}
+
+
+.prompt {
+    color: #72a7ff;
+
+    font-weight: 600;
+}
+
+
+.success {
+    color: #69e6a4;
+}
+
+
+.warning {
+    color: #ffc857;
+}
+
+
+.danger {
+    color: #ff718d;
+}
+
+
+/* =========================================================
+   8. TARGET IDENTIFICATION
+========================================================= */
+
+.target-input-section {
+    margin-top: 22px;
+
+    padding:
+        17px;
+
+    border:
+        1px solid
+        rgba(105, 140, 255, 0.14);
+
+    border-radius: 15px;
+
+    background:
+        rgba(80, 100, 170, 0.035);
+}
+
+
+.target-request {
+    color: #8daaff;
+
+    font-size: 12px;
+
+    letter-spacing: 0.5px;
+}
+
+
+.target-question {
+    margin:
+        12px 0 9px;
+
+    color: #c9cedb;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   9. NAME INPUT
+========================================================= */
+
+.name-input-wrapper {
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 48px;
+
+    padding:
+        0 13px;
+
+    border:
+        1px solid
+        rgba(110, 140, 220, 0.25);
+
+    border-radius: 11px;
+
+    background:
+        rgba(0, 0, 0, 0.28);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.name-input-wrapper:focus-within {
+    border-color:
+        rgba(105, 165, 255, 0.6);
+
+    box-shadow:
+        0 0 20px
+        rgba(80, 120, 255, 0.08);
+}
+
+
+.input-prefix {
+    margin-right: 8px;
+
+    color: #69e6a4;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-weight: 700;
+}
+
+
+.name-input {
+    width: 100%;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: #f2f4fb;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+}
+
+
+.name-input::placeholder {
+    color: #5f6676;
+}
+
+
+.input-error {
+    margin-top: 7px;
+
+    color: #ff718d;
+
+    font-size: 11px;
+
+    font-family:
+        "Courier New",
+        monospace;
+}
+
+
+/* =========================================================
+   10. TARGET FOUND CARD
+========================================================= */
+
+.target-card {
+    margin:
+        20px 0;
+
+    padding:
+        22px
+        13px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(95, 155, 255, 0.28);
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(70, 100, 190, 0.08),
+            rgba(130, 75, 220, 0.04)
+        );
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(75, 110, 255, 0.04),
+
+        0 10px 35px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+.target-status {
+    color: #69e6a4;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 0.7px;
+}
+
+
+.target-name {
+    margin-top: 5px;
+
+    color: #f3f5ff;
+
+    font-size:
+        clamp(30px, 9vw, 46px);
+
+    font-weight: 850;
+
+    line-height: 1.1;
+
+    letter-spacing: -1.5px;
+
+    text-shadow:
+        0 0 28px
+        rgba(105, 155, 255, 0.28);
+
+    word-break: break-word;
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+
+.target-description {
+    margin-top: 7px;
+
+    color: #7f8799;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   11. TARGET SCANNING
+========================================================= */
+
+.target-scanning {
+    margin-top: 20px;
+
+    padding:
+        15px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(0, 0, 0, 0.28);
+
+    border:
+        1px solid
+        rgba(100, 130, 210, 0.12);
+}
+
+
+.scan-output {
+    min-height: 80px;
+
+    color: #8e96a8;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   12. BUTTON SYSTEM
+========================================================= */
+
+.primary-btn {
+    width: 100%;
+
+    min-height: 48px;
+
+    padding:
+        13px
+        18px;
+
+    border:
+        1px solid
+        rgba(105, 165, 255, 0.38);
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(68, 110, 255, 0.20),
+            rgba(135, 75, 235, 0.18)
+        );
+
+    color: #f5f7ff;
+
+    font-size: 13px;
+
+    font-weight: 750;
+
+    letter-spacing: 0.2px;
+
+    box-shadow:
+        0 0 20px
+        rgba(80, 110, 255, 0.08);
+
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+}
+
+
+.primary-btn:hover {
+    border-color:
+        rgba(120, 175, 255, 0.65);
+
+    box-shadow:
+        0 0 28px
+        rgba(80, 120, 255, 0.16);
+}
+
+
+.primary-btn:active {
+    transform:
+        scale(0.97);
+}
+
+
+.secondary-btn {
+    width: 100%;
+
+    min-height: 46px;
+
+    padding:
+        12px
+        16px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color: #d5d9e4;
+
+    font-size: 13px;
+
+    font-weight: 650;
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease;
+}
+
+
+.secondary-btn:hover {
+    background:
+        rgba(255, 255, 255, 0.06);
+}
+
+
+.secondary-btn:active {
+    transform:
+        scale(0.97);
+}
+
+
+.glow {
+    box-shadow:
+        0 0 18px
+        rgba(85, 120, 255, 0.12);
+}
+
+
+/* =========================================================
+   13. GLASS CARD
+========================================================= */
+
+.glass-card {
+    width: 100%;
+
+    padding:
+        21px
+        17px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    border-radius: 20px;
+
+    background:
+        rgba(17, 20, 30, 0.72);
+
+    box-shadow:
+        0 25px 75px
+        rgba(0, 0, 0, 0.42);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+}
+
+
+.glass-card h2 {
+    color: #f0f2fa;
+
+    font-size:
+        clamp(21px, 6vw, 29px);
+
+    line-height: 1.2;
+
+    letter-spacing: -0.7px;
+}
+
+
+.section-label {
+    margin-bottom: 8px;
+
+    color: #769cff;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+}
+
+
+.muted {
+    margin-top: 8px;
+
+    color: #858d9f;
+
+    font-size: 12px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   14. ANALYSIS SCREEN
+========================================================= */
+
+.analysis-screen .glass-card {
+    text-align: left;
+}
+
+
+.progress-container {
+    margin-top: 25px;
+}
+
+
+.progress-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 8px;
+
+    color: #747c8f;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 0.5px;
+}
+
+
+#progress-percent {
+    color: #8eb1ff;
+
+    font-weight: 700;
+}
+
+
+.progress-track {
+    width: 100%;
+
+    height: 8px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+}
+
+
+.progress-bar {
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #557cff,
+            #8c63ff
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(100, 120, 255, 0.28);
+}
+
+
+.mini-terminal {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 20px;
+
+    padding:
+        13px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+    border-radius: 11px;
+
+    background:
+        rgba(0, 0, 0, 0.28);
+
+    color: #81899b;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+
+    overflow: hidden;
+}
+
+
+#analysis-command {
+    color: #aeb4c3;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   15. PERSONALITY RESULT
+========================================================= */
+
+.result-card {
+    position: relative;
+}
+
+
+.stats-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+    margin-top: 24px;
+}
+
+
+/* JavaScript-generated stat item */
+
+.stat-item {
+    width: 100%;
+}
+
+
+.stat-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 7px;
+
+    color: #b9bfcd;
+
+    font-size: 12px;
+}
+
+
+.stat-value {
+    color: #89a9ff;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-weight: 700;
+}
+
+
+.stat-track {
+    width: 100%;
+
+    height: 7px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+}
+
+
+.stat-bar {
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #557cff,
+            #9866ff
+        );
+}
+
+
+/* =========================================================
+   16. CONCLUSION BOX
+========================================================= */
+
+.conclusion-box {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin-top: 22px;
+
+    padding:
+        14px;
+
+    border:
+        1px solid
+        rgba(110, 140, 255, 0.12);
+
+    border-radius: 12px;
+
+    background:
+        rgba(80, 100, 180, 0.045);
+
+    color: #aeb5c4;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+.conclusion-box strong {
+    color: #d7dce8;
+}
+
+
+/* =========================================================
+   17. REAL TEST / QUESTIONS
+========================================================= */
+
+.question-intro {
+    margin-top: 7px;
+
+    color: #9da5b6;
+
+    font-size: 13px;
+}
+
+
+.question-progress {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 23px;
+
+    padding-bottom: 11px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+    color: #737b8d;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+}
+
+
+#question-percent {
+    color: #7d9eff;
+}
+
+
+.question-container {
+    margin-top: 20px;
+}
+
+
+.question-text {
+    color: #f0f2f8;
+
+    font-size:
+        clamp(18px, 5vw, 23px);
+
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+
+.question-options {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.question-option {
+    width: 100%;
+
+    padding:
+        13px
+        14px;
+
+    text-align: left;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color: #cdd2de;
+
+    font-size: 12px;
+
+    line-height: 1.45;
+
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease;
+}
+
+
+.question-option:hover {
+    border-color:
+        rgba(110, 155, 255, 0.35);
+
+    background:
+        rgba(80, 110, 190, 0.07);
+}
+
+
+.question-option:active {
+    transform:
+        scale(0.98);
+}
+
+
+.question-option.selected {
+    border-color:
+        rgba(105, 165, 255, 0.65);
+
+    background:
+        rgba(80, 110, 220, 0.12);
+
+    color: #f2f4fb;
+}
+
+
+/* =========================================================
+   18. TOLERANCE SLIDER
+========================================================= */
+
+.slider-wrapper {
+    margin-top: 25px;
+}
+
+
+.tolerance-slider {
+    width: 100%;
+
+    height: 6px;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    border-radius: 20px;
+
+    outline: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            #557cff 0%,
+            #8c63ff 100%
+        );
+}
+
+
+.tolerance-slider::-webkit-slider-thumb {
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid
+        #dce5ff;
+
+    background:
+        #657fff;
+
+    box-shadow:
+        0 0 16px
+        rgba(90, 120, 255, 0.35);
+}
+
+
+.tolerance-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid
+        #dce5ff;
+
+    background:
+        #657fff;
+
+    box-shadow:
+        0 0 16px
+        rgba(90, 120, 255, 0.35);
+}
+
+
+.slider-value {
+    margin-top: 13px;
+
+    text-align: center;
+
+    color: #90aaff;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+.slider-message {
+    min-height: 45px;
+
+    margin-top: 10px;
+
+    text-align: center;
+
+    color: #a6adbc;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   19. FINAL RESULT
+========================================================= */
+
+.final-card {
+    text-align: center;
+}
+
+
+.score-display {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin:
+        28px
+        0
+        20px;
+}
+
+
+.score-number {
+    color: #f4f6ff;
+
+    font-size:
+        clamp(55px, 18vw, 90px);
+
+    font-weight: 850;
+
+    line-height: 1;
+
+    letter-spacing: -4px;
+
+    text-shadow:
+        0 0 35px
+        rgba(100, 140, 255, 0.28);
+}
+
+
+.final-card .conclusion-box {
+    margin-top: 22px;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   20. MODAL SYSTEM
+========================================================= */
+
+.modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        18px;
+
+    background:
+        rgba(0, 0, 0, 0.74);
+
+    backdrop-filter:
+        blur(9px);
+
+    -webkit-backdrop-filter:
+        blur(9px);
+}
+
+
+.modal {
+    position: relative;
+
+    width: min(100%, 430px);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding:
+        24px
+        18px;
+
+    border:
+        1px solid
+        rgba(120, 145, 230, 0.20);
+
+    border-radius: 20px;
+
+    background:
+        rgba(16, 19, 29, 0.96);
+
+    box-shadow:
+        0 30px 100px
+        rgba(0, 0, 0, 0.65);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+}
+
+
+.modal-close {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    color: #a7adbb;
+
+    font-size: 20px;
+
+    line-height: 1;
+
+    transition:
+        background 0.18s ease;
+}
+
+
+.modal-close:hover {
+    background:
+        rgba(255, 255, 255, 0.09);
+}
+
+
+/* =========================================================
+   21. WARNING MODAL
+========================================================= */
+
+.warning-icon {
+    margin-bottom: 12px;
+
+    font-size: 28px;
+}
+
+
+.warning-modal h2 {
+    padding-right: 35px;
+
+    color: #f0f2f8;
+
+    font-size: 22px;
+}
+
+
+.warning-text {
+    margin-top: 12px;
+
+    color: #9da5b6;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+}
+
+
+.modal-actions {
+    display: flex;
+
+    gap: 9px;
+
+    margin-top: 22px;
+}
+
+
+.modal-actions .primary-btn,
+.modal-actions .secondary-btn {
+    flex: 1;
+}
+
+
+.exit-message {
+    margin-top: 16px;
+
+    padding:
+        11px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255, 90, 120, 0.06);
+
+    color: #ff9aae;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   22. FINAL VERDICT
+========================================================= */
+
+.verdict-options {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    margin-top: 20px;
+}
+
+
+.verdict-option {
+    width: 100%;
+
+    padding:
+        13px
+        14px;
+
+    text-align: left;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color: #d3d8e3;
+
+    font-size: 13px;
+
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease;
+}
+
+
+.verdict-option:hover {
+    border-color:
+        rgba(105, 155, 255, 0.4);
+
+    background:
+        rgba(80, 110, 200, 0.08);
+}
+
+
+.verdict-option:active {
+    transform:
+        scale(0.98);
+}
+
+
+.verdict-response {
+    margin-top: 18px;
+
+    padding:
+        14px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(80, 110, 200, 0.06);
+
+    border:
+        1px solid
+        rgba(100, 140, 230, 0.12);
+
+    color: #cbd1de;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   23. DEVELOPER EASTER EGG MODAL
+========================================================= */
+
+.developer-note {
+    min-height: 160px;
+
+    padding:
+        12px;
+
+    color: #76e6a8;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    white-space: pre-wrap;
+}
+
+
+.developer-note::before {
+    content:
+        "developer@cse:~$ ";
+
+    color: #719cff;
+}
+
+
+/* =========================================================
+   24. BOTTOM DEVELOPER TERMINAL
+========================================================= */
+
+.developer-terminal {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding:
+        13px
+        14px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+    border-radius: 12px;
+
+    background:
+        rgba(5, 7, 11, 0.72);
+}
+
+
+.terminal-command {
+    display: block;
+
+    width: 100%;
+
+    text-align: left;
+
+    background: transparent;
+
+    color: #858d9e;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+}
+
+
+.terminal-command .prompt {
+    margin-right: 4px;
+}
+
+
+.terminal-result {
+    margin-top: 12px;
+
+    padding-top: 11px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+    color: #969eae;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+}
+
+
+.terminal-result strong {
+    color: #69e6a4;
+}
+
+
+/* =========================================================
+   25. FOOTER
+========================================================= */
+
+.footer {
+    width: 100%;
+
+    padding:
+        20px
+        8px
+        10px;
+
+    text-align: center;
+
+    color: #5f6676;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+
+    line-height: 1.8;
+}
+
+
+.system-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 10px;
+
+    padding:
+        5px
+        9px;
+
+    border:
+        1px solid
+        rgba(105, 230, 164, 0.10);
+
+    border-radius: 20px;
+
+    color: #687184;
+
+    background:
+        rgba(105, 230, 164, 0.025);
+}
+
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #69e6a4;
+
+    box-shadow:
+        0 0 8px
+        rgba(105, 230, 164, 0.45);
+}
+
+
+/* =========================================================
+   26. SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+::-webkit-scrollbar-track {
+    background:
+        #080a0f;
+}
+
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+
+    background:
+        rgba(110, 130, 190, 0.25);
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background:
+        rgba(110, 130, 190, 0.4);
+}
+
+
+/* =========================================================
+   27. SELECTION
+========================================================= */
+
+::selection {
+    background:
+        rgba(90, 120, 255, 0.3);
+
+    color: #ffffff;
+}
