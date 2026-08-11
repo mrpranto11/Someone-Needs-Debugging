@@ -1098,17 +1098,26 @@ function handleStartRealTest() {
 
 
 /* =========================================================
-   16. EVENT LISTENER
+   CONTINUE TO REAL TEST
+   Robust event listener
 ========================================================= */
 
-if (DOM.startRealTestBtn) {
+document.addEventListener("click", function (event) {
 
-    DOM.startRealTestBtn.addEventListener(
-        "click",
-        handleStartRealTest
+    const button =
+        event.target.closest("#start-real-test-btn");
+
+    if (!button) {
+        return;
+    }
+
+    console.log(
+        "REAL TEST BUTTON CLICKED"
     );
 
-}
+    handleStartRealTest();
+
+});
 
 
 /* =========================================================
