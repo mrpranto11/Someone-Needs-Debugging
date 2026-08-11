@@ -1069,15 +1069,12 @@ function renderPersonalityConclusion() {
 
 
 /* =========================================================
-   15. CONTINUE TO REAL TEST
-========================================================= */
-
 function handleStartRealTest() {
 
-    /*
-       questions.js will provide
-       startQuestionTest().
-    */
+    console.log(
+        "Starting real test..."
+    );
+
 
     if (
         typeof startQuestionTest ===
@@ -1088,14 +1085,17 @@ function handleStartRealTest() {
 
     } else {
 
-        console.warn(
-            "questions.js is not loaded yet."
+        console.error(
+            "questions.js is NOT loaded or startQuestionTest() is missing."
+        );
+
+        alert(
+            "System Error: questions.js not loaded."
         );
 
     }
 
 }
-
 
 /* =========================================================
    CONTINUE TO REAL TEST
