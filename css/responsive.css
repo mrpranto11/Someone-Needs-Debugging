@@ -1,0 +1,768 @@
+/* =========================================================
+   SOMEONE NEEDS DEBUGGING... 👀
+   RESPONSIVE STYLESHEET
+   ---------------------------------------------------------
+   File: css/responsive.css
+
+   Optimized for:
+   - Small Android phones
+   - Normal Android phones
+   - Large phones
+   - Tablets
+   - Landscape mode
+   - Touch interaction
+
+   Main design remains in style.css.
+   Animations remain in animations.css.
+========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL MOBILE SAFETY
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+
+    overflow-x: hidden;
+}
+
+
+img,
+svg,
+video,
+canvas {
+    max-width: 100%;
+}
+
+
+button,
+input {
+    max-width: 100%;
+}
+
+
+/* Prevent accidental text overflow */
+
+h1,
+h2,
+h3,
+p,
+span {
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   2. VERY SMALL PHONES
+   320px - 359px
+========================================================= */
+
+@media (max-width: 359px) {
+
+    .app {
+        padding:
+            10px
+            9px
+            35px;
+    }
+
+
+    .screen {
+        min-height:
+            calc(100vh - 45px);
+
+        padding:
+            12px
+            0;
+    }
+
+
+    /* Terminal */
+
+    .terminal {
+        border-radius: 15px;
+    }
+
+
+    .terminal-header {
+        height: 38px;
+
+        padding:
+            0 11px;
+    }
+
+
+    .terminal-window-title {
+        font-size: 9px;
+    }
+
+
+    .terminal-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+
+    .terminal-body {
+        padding:
+            17px
+            12px
+            20px;
+
+        font-size: 11px;
+
+        line-height: 1.7;
+    }
+
+
+    /* Target */
+
+    .target-input-section {
+        padding:
+            13px;
+    }
+
+
+    .target-name {
+        font-size: 28px;
+
+        letter-spacing:
+            -1px;
+    }
+
+
+    .target-card {
+        padding:
+            18px
+            10px;
+    }
+
+
+    /* Buttons */
+
+    .primary-btn,
+    .secondary-btn {
+        min-height: 47px;
+
+        font-size: 11px;
+    }
+
+
+    /* Cards */
+
+    .glass-card {
+        padding:
+            17px
+            13px;
+
+        border-radius: 17px;
+    }
+
+
+    .glass-card h2 {
+        font-size: 20px;
+    }
+
+
+    /* Question */
+
+    .question-text {
+        font-size: 17px;
+    }
+
+
+    .question-option {
+        padding:
+            12px
+            11px;
+
+        font-size: 11px;
+    }
+
+
+    /* Modal */
+
+    .modal-overlay {
+        padding:
+            10px;
+    }
+
+
+    .modal {
+        padding:
+            20px
+            13px;
+
+        border-radius: 17px;
+    }
+
+
+    /* Footer */
+
+    .footer {
+        font-size: 8px;
+    }
+
+}
+
+
+/* =========================================================
+   3. STANDARD ANDROID PHONES
+   360px - 389px
+========================================================= */
+
+@media (min-width: 360px) and (max-width: 389px) {
+
+    .app {
+        padding:
+            12px
+            11px
+            40px;
+    }
+
+
+    .screen {
+        padding:
+            15px
+            0;
+    }
+
+
+    .terminal-body {
+        padding:
+            19px
+            14px
+            23px;
+
+        font-size: 12px;
+    }
+
+
+    .target-name {
+        font-size: 31px;
+    }
+
+
+    .glass-card {
+        padding:
+            19px
+            15px;
+    }
+
+
+    .question-text {
+        font-size: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   4. NORMAL ANDROID PHONES
+   390px - 429px
+========================================================= */
+
+@media (min-width: 390px) and (max-width: 429px) {
+
+    .app {
+        padding:
+            14px
+            13px
+            45px;
+    }
+
+
+    .screen {
+        padding:
+            17px
+            0;
+    }
+
+
+    .terminal-body {
+        padding:
+            21px
+            16px
+            25px;
+
+        font-size: 13px;
+    }
+
+
+    .target-name {
+        font-size: 34px;
+    }
+
+
+    .glass-card {
+        padding:
+            21px
+            17px;
+    }
+
+
+    .question-text {
+        font-size: 19px;
+    }
+
+
+    .question-option {
+        padding:
+            14px;
+    }
+
+}
+
+
+/* =========================================================
+   5. LARGE PHONES
+   430px - 599px
+========================================================= */
+
+@media (min-width: 430px) and (max-width: 599px) {
+
+    .app {
+        padding:
+            18px
+            16px
+            50px;
+    }
+
+
+    .screen {
+        padding:
+            20px
+            0;
+    }
+
+
+    .terminal-body {
+        padding:
+            23px
+            18px
+            27px;
+
+        font-size: 13px;
+    }
+
+
+    .target-name {
+        font-size: 39px;
+    }
+
+
+    .glass-card {
+        padding:
+            23px
+            19px;
+    }
+
+
+    .question-text {
+        font-size: 21px;
+    }
+
+
+    .question-option {
+        padding:
+            14px
+            15px;
+
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   6. TABLET
+   600px - 899px
+========================================================= */
+
+@media (min-width: 600px) and (max-width: 899px) {
+
+    .app {
+        max-width: 680px;
+
+        padding:
+            25px
+            20px
+            60px;
+    }
+
+
+    .screen {
+        min-height:
+            calc(100vh - 90px);
+
+        padding:
+            25px
+            0;
+    }
+
+
+    .terminal-body {
+        padding:
+            28px
+            24px
+            32px;
+
+        font-size: 14px;
+    }
+
+
+    .target-name {
+        font-size: 44px;
+    }
+
+
+    .glass-card {
+        padding:
+            27px
+            24px;
+    }
+
+
+    .glass-card h2 {
+        font-size: 28px;
+    }
+
+
+    .question-text {
+        font-size: 23px;
+    }
+
+
+    .question-option {
+        padding:
+            15px
+            17px;
+
+        font-size: 13px;
+    }
+
+
+    .primary-btn,
+    .secondary-btn {
+        min-height: 50px;
+    }
+
+}
+
+
+/* =========================================================
+   7. LARGE TABLETS / DESKTOP
+   900px+
+========================================================= */
+
+@media (min-width: 900px) {
+
+    .app {
+        max-width: 720px;
+
+        padding:
+            25px
+            20px
+            60px;
+    }
+
+
+    .screen {
+        min-height:
+            calc(100vh - 100px);
+    }
+
+
+    /* Slightly larger interaction areas */
+
+    .primary-btn,
+    .secondary-btn {
+        min-height: 50px;
+    }
+
+
+    .question-option:hover,
+    .verdict-option:hover {
+        transform:
+            translateY(-1px);
+    }
+
+}
+
+
+/* =========================================================
+   8. LANDSCAPE PHONE MODE
+========================================================= */
+
+@media (
+    max-height: 520px
+) and (
+    orientation: landscape
+) {
+
+    .app {
+        padding:
+            10px
+            15px
+            25px;
+    }
+
+
+    .screen {
+        min-height: auto;
+
+        padding:
+            15px
+            0;
+    }
+
+
+    .terminal-body {
+        padding:
+            15px
+            18px
+            18px;
+    }
+
+
+    .target-card {
+        margin:
+            12px 0;
+
+        padding:
+            14px;
+    }
+
+
+    .target-name {
+        font-size: 28px;
+    }
+
+
+    .glass-card {
+        padding:
+            16px;
+    }
+
+
+    .modal {
+        max-height:
+            94vh;
+    }
+
+
+    .footer {
+        padding-bottom:
+            15px;
+    }
+
+}
+
+
+/* =========================================================
+   9. TOUCH DEVICE OPTIMIZATION
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    /*
+       Android touch screens need comfortable
+       touch targets.
+    */
+
+    button {
+        min-height: 46px;
+    }
+
+
+    .question-option,
+    .verdict-option {
+        min-height: 48px;
+    }
+
+
+    .modal-close {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    /*
+       Remove hover-dependent movement on touch.
+    */
+
+    .primary-btn:hover,
+    .secondary-btn:hover,
+    .question-option:hover,
+    .verdict-option:hover {
+        transform: none;
+    }
+
+
+    /*
+       Make slider thumb easier to control.
+    */
+
+    .tolerance-slider::-webkit-slider-thumb {
+        width: 26px;
+        height: 26px;
+    }
+
+
+    .tolerance-slider::-moz-range-thumb {
+        width: 26px;
+        height: 26px;
+    }
+
+}
+
+
+/* =========================================================
+   10. VERY NARROW WIDTH SAFETY
+========================================================= */
+
+@media (max-width: 330px) {
+
+    .terminal-controls {
+        gap: 5px;
+    }
+
+
+    .terminal-window-title {
+        max-width: 130px;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+
+        white-space: nowrap;
+    }
+
+
+    .target-request {
+        font-size: 10px;
+    }
+
+
+    .target-question {
+        font-size: 11px;
+    }
+
+
+    .name-input {
+        font-size: 12px;
+    }
+
+
+    .section-label {
+        font-size: 9px;
+    }
+
+
+    .muted {
+        font-size: 11px;
+    }
+
+
+    .question-progress {
+        font-size: 9px;
+    }
+
+}
+
+
+/* =========================================================
+   11. SAFE AREA SUPPORT
+   For phones with notches / gesture navigation.
+========================================================= */
+
+@supports (padding: env(safe-area-inset-top)) {
+
+    .app {
+        padding-top:
+            calc(
+                18px +
+                env(safe-area-inset-top)
+            );
+
+        padding-bottom:
+            calc(
+                50px +
+                env(safe-area-inset-bottom)
+            );
+    }
+
+
+    .modal-overlay {
+        padding-top:
+            calc(
+                18px +
+                env(safe-area-inset-top)
+            );
+
+        padding-bottom:
+            calc(
+                18px +
+                env(safe-area-inset-bottom)
+            );
+    }
+
+}
+
+
+/* =========================================================
+   12. FONT SIZE SAFETY
+========================================================= */
+
+@media (max-width: 380px) {
+
+    body {
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   13. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+
+}
+
+
+/* =========================================================
+   14. DARK MODE CONSISTENCY
+   Website is already dark, but this ensures
+   Android/browser preferences don't alter controls.
+========================================================= */
+
+@media (prefers-color-scheme: light) {
+
+    input,
+    button {
+        color-scheme: dark;
+    }
+
+}
