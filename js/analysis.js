@@ -1068,7 +1068,7 @@ function renderPersonalityConclusion() {
 }
 
 
-/* =========================================================
+/* =========================================================*/
 function handleStartRealTest() {
 
     console.log(
